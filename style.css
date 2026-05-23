@@ -1,54 +1,28 @@
-/* ============================================================
-   DIVIYA DHARSHINI S — PORTFOLIO STYLESHEET
-   style.css
 
-   HOW TO CUSTOMIZE:
-   → Colors : edit :root variables at the top
-   → Fonts  : edit --font-display / --font-body / --font-mono
-   → Spacing: edit padding / margin values per section
-   ============================================================ */
-
-
-/* ============================================================
-   1. CSS VARIABLES  ← CHANGE COLORS & FONTS HERE
-   ============================================================ */
 :root {
-  /* BACKGROUNDS */
+
   --bg:      #04070d;
   --surface: #080e1a;
   --card:    #0c1424;
 
-  /* ACCENT COLORS
-     Want a different theme? Change just these two lines!
-     Purple  → #a855f7  /  #d8b4fe
-     Blue    → #3b82f6  /  #93c5fd
-     Pink    → #ec4899  /  #f9a8d4
-     Current → violet/indigo                              */
+                     
   --accent:  #7c3aed;
   --accent2: #c4b5fd;
   --gold:    #f0c060;
 
-  /* TEXT */
   --text:  #e8e4f8;
   --muted: #6b6494;
 
-  /* BORDER & GLOW */
   --border: rgba(124, 58, 237, 0.18);
   --glow:   0 0 48px rgba(124, 58, 237, 0.22);
 
-  /* FONTS */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Outfit', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
-  /* TRANSITION EASING */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* ============================================================
-   2. RESET & BASE
-   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html  { scroll-behavior: smooth; font-size: 16px; }
 body  { background: var(--bg); color: var(--text); font-family: var(--font-body); overflow-x: hidden; cursor: none; line-height: 1.7; }
@@ -56,10 +30,6 @@ a     { text-decoration: none; color: inherit; }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-
-/* ============================================================
-   3. CUSTOM CURSOR
-   ============================================================ */
 #cursor {
   position: fixed; width: 10px; height: 10px;
   background: var(--accent); border-radius: 50%;
@@ -79,20 +49,12 @@ a     { text-decoration: none; color: inherit; }
 body.cursor-hover #cursor      { transform: translate(-50%,-50%) scale(2.5); }
 body.cursor-hover #cursor-ring { width: 54px; height: 54px; opacity: 0.22; }
 
-
-/* ============================================================
-   4. ANIMATED BACKGROUND CANVAS
-   ============================================================ */
 #bg-canvas {
   position: fixed; inset: 0;
   z-index: 0; pointer-events: none;
 }
 
-
-/* ============================================================
-   5. NAVIGATION BAR
-   ============================================================ */
-nav {
+{
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.1rem 3rem;
@@ -133,9 +95,6 @@ nav.scrolled { padding: 0.7rem 3rem; }
 }
 
 
-/* ============================================================
-   6. MOBILE DRAWER
-   ============================================================ */
 .mobile-drawer {
   position: fixed; top: 0; right: -100%;
   width: 70%; max-width: 280px; height: 100vh;
@@ -150,9 +109,6 @@ nav.scrolled { padding: 0.7rem 3rem; }
 .drawer-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; }
 
 
-/* ============================================================
-   7. HERO SECTION
-   ============================================================ */
 #hero {
   min-height: 100vh; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -172,7 +128,6 @@ nav.scrolled { padding: 0.7rem 3rem; }
   background: var(--accent2); animation: pulse 1.6s infinite;
 }
 
-/* Name — Cormorant Garamond for elegant serif display */
 .hero-name {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 8vw, 5.8rem);
@@ -212,10 +167,6 @@ nav.scrolled { padding: 0.7rem 3rem; }
   animation: scrollPulse 2s infinite;
 }
 
-
-/* ============================================================
-   8. BUTTONS
-   ============================================================ */
 .btn-primary {
   padding: 0.8rem 2rem; border-radius: 8px;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -235,10 +186,6 @@ nav.scrolled { padding: 0.7rem 3rem; }
 }
 .btn-outline:hover { border-color: var(--accent); background: rgba(124,58,237,0.08); transform: translateY(-3px); }
 
-
-/* ============================================================
-   9. SECTION SHARED STYLES
-   ============================================================ */
 section { position: relative; z-index: 1; padding: 7rem 0; }
 
 #skills, #certifications {
@@ -252,9 +199,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .section-sub code { font-family: var(--font-mono); color: var(--accent2); background: rgba(124,58,237,0.12); padding: 0.1rem 0.4rem; border-radius: 4px; }
 
 
-/* ============================================================
-   10. ABOUT SECTION
-   ============================================================ */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 
 .about-visual { position: relative; display: flex; align-items: center; justify-content: center; }
@@ -290,10 +234,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .stat-num       { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--accent2); display: block; }
 .stat-label     { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
-
-/* ============================================================
-   11. TERMINAL SECTION
-   ============================================================ */
 .terminal-window {
   max-width: 820px; margin: 0 auto;
   background: #0a0d14;
@@ -302,7 +242,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
   box-shadow: 0 24px 80px rgba(124,58,237,0.18), 0 0 0 1px rgba(255,255,255,0.04);
 }
 
-/* Top bar with traffic light buttons */
 .terminal-topbar {
   display: flex; align-items: center; gap: 0.5rem;
   padding: 0.9rem 1.2rem;
@@ -318,7 +257,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
   font-size: 0.78rem; color: #7070a0;
 }
 
-/* Output lines area */
 .terminal-body {
   padding: 1.5rem 1.8rem 0.5rem;
   min-height: 220px; max-height: 380px;
@@ -329,7 +267,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .terminal-body::-webkit-scrollbar { width: 4px; }
 .terminal-body::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-/* Individual terminal text line */
 .t-line     { margin-bottom: 0.15rem; animation: tFadeIn 0.25s ease both; }
 .t-prompt   { color: var(--accent); margin-right: 0.6rem; }
 .t-dollar   { color: var(--accent); font-family: var(--font-mono); font-size: 1rem; margin-right: 0.5rem; flex-shrink: 0; }
@@ -340,7 +277,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .t-info     { color: #7ec8f0; }
 .t-cmd      { color: var(--accent2); opacity: 0.7; }
 
-/* Input row at the bottom */
 .terminal-input-row {
   display: flex; align-items: center;
   padding: 0.8rem 1.8rem 1.2rem;
@@ -356,9 +292,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 @keyframes tFadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
 
-/* ============================================================
-   12. SKILLS SECTION
-   ============================================================ */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 
 .skill-card {
@@ -388,9 +321,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .tag:hover { background: rgba(124,58,237,0.2); border-color: var(--accent); }
 
 
-/* ============================================================
-   13. PROJECTS SECTION
-   ============================================================ */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
 .project-card {
@@ -404,7 +334,7 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
   height: 155px; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-/* Banner color variants */
+
 .banner-teal   { background: linear-gradient(135deg, #0a0f1f, #0e1e3a); }
 .banner-purple { background: linear-gradient(135deg, #0f0a1f, #1a1030); }
 .banner-blue   { background: linear-gradient(135deg, #080f1f, #0c1830); }
@@ -426,10 +356,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
   font-size: 0.7rem; color: var(--gold); font-family: var(--font-mono);
 }
 
-
-/* ============================================================
-   14. EXPERIENCE / TIMELINE
-   ============================================================ */
 .timeline { position: relative; max-width: 780px; margin: 0 auto; padding-left: 2.5rem; }
 .timeline::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
@@ -445,10 +371,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .timeline-date    { display: inline-block; padding: 0.18rem 0.65rem; border-radius: 100px; background: rgba(124,58,237,0.09); border: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); font-family: var(--font-mono); margin-bottom: 0.85rem; }
 .timeline-desc    { color: var(--muted); font-size: 0.88rem; line-height: 1.75; }
 
-
-/* ============================================================
-   15. CERTIFICATIONS
-   ============================================================ */
 .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; }
 .cert-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px;
@@ -462,9 +384,6 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .cert-desc   { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
 
 
-/* ============================================================
-   16. CONTACT SECTION
-   ============================================================ */
 .contact-container { max-width: 680px; text-align: center; }
 .contact-sub       { color: var(--muted); font-size: 0.93rem; margin-top: 0.6rem; }
 
@@ -507,17 +426,10 @@ section { position: relative; z-index: 1; padding: 7rem 0; }
 .social-btn   { display: flex; align-items: center; gap: 0.45rem; padding: 0.6rem 1.3rem; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; transition: border-color 0.2s, color 0.2s, background 0.2s; }
 .social-btn:hover { border-color: var(--accent); color: var(--accent2); background: rgba(124,58,237,0.07); }
 
-
-/* ============================================================
-   17. FOOTER
-   ============================================================ */
 footer { padding: 2rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; position: relative; z-index: 1; }
 .footer-name { color: var(--accent2); }
 
 
-/* ============================================================
-   18. SCROLL REVEAL ANIMATIONS
-   ============================================================ */
 .reveal, .reveal-left, .reveal-right { opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal       { transform: translateY(28px); }
 .reveal-left  { transform: translateX(-40px); }
@@ -525,9 +437,6 @@ footer { padding: 2rem; text-align: center; border-top: 1px solid var(--border);
 .reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
 
 
-/* ============================================================
-   19. KEYFRAME ANIMATIONS
-   ============================================================ */
 @keyframes fadeSlideUp   { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
 @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:none} }
 @keyframes pulse         { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(0.8)} }
@@ -537,9 +446,6 @@ footer { padding: 2rem; text-align: center; border-top: 1px solid var(--border);
 @keyframes floatGlow     { 0%,100%{transform:scale(1) translate(0,0)} 50%{transform:scale(1.4) translate(8px,-8px)} }
 
 
-/* ============================================================
-   20. RESPONSIVE — MOBILE & TABLET
-   ============================================================ */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-visual { order: -1; }
