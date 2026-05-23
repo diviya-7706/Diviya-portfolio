@@ -1,23 +1,4 @@
-/* ============================================================
-   DIVIYA DHARSHINI S — PORTFOLIO JAVASCRIPT
-   script.js
 
-   SECTIONS:
-   1.  Custom Cursor
-   2.  Animated Background Canvas (particles + grid)
-   3.  Mobile Navigation Drawer
-   4.  Navbar Scroll Shrink
-   5.  Scroll Reveal Animations
-   6.  Card Tilt Effect
-   7.  Interactive Terminal
-   8.  Contact Form (Formspree)
-   ============================================================ */
-
-
-/* ============================================================
-   1. CUSTOM CURSOR
-   Dot follows instantly, ring follows with smooth lag
-   ============================================================ */
 const cursor     = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
 
@@ -40,22 +21,17 @@ function animateCursor() {
 }
 animateCursor();
 
-// Enlarge cursor on hoverable elements
+
 document.querySelectorAll('a, button, input, textarea, .skill-card, .project-card, .cert-card').forEach((el) => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
 
 
-/* ============================================================
-   2. ANIMATED BACKGROUND CANVAS
-   Draws: floating particles + subtle grid + glowing orbs
-   ============================================================ */
 const canvas = document.getElementById('bg-canvas');
 const ctx    = canvas.getContext('2d');
 let W, H;
 
-// --- Particles ---
 let particles = [];
 const PARTICLE_COUNT = 120;
 
@@ -79,7 +55,6 @@ function initParticles() {
   }
 }
 
-// Glowing orbs (large soft blobs in background)
 const orbs = [
   { x: 0.15, y: 0.2,  r: 320, color: 'rgba(124,58,237,0.07)'  },
   { x: 0.85, y: 0.55, r: 280, color: 'rgba(196,181,253,0.05)' },
@@ -103,7 +78,6 @@ function drawBackground() {
     ctx.fill();
   });
 
-  // Draw subtle dot grid
   ctx.fillStyle = 'rgba(124,58,237,0.06)';
   const gridSpacing = 48;
   for (let gx = 0; gx < W; gx += gridSpacing) {
@@ -114,7 +88,6 @@ function drawBackground() {
     }
   }
 
-  // Draw + animate particles
   particles.forEach((p) => {
     p.twinkle += 0.015;
     const opacity = p.alpha * (0.5 + 0.5 * Math.sin(p.twinkle));
@@ -124,18 +97,15 @@ function drawBackground() {
     ctx.fillStyle = `rgba(196,181,253,${opacity})`;
     ctx.fill();
 
-    // Move
     p.x += p.speedX;
     p.y += p.speedY;
 
-    // Wrap around edges
     if (p.x < 0) p.x = W;
     if (p.x > W) p.x = 0;
     if (p.y < 0) p.y = H;
     if (p.y > H) p.y = 0;
   });
 
-  // Draw connecting lines between nearby particles
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const dx   = particles[i].x - particles[j].x;
@@ -163,10 +133,6 @@ resizeCanvas();
 initParticles();
 drawBackground();
 
-
-/* ============================================================
-   3. MOBILE NAVIGATION DRAWER
-   ============================================================ */
 const navToggle    = document.getElementById('navToggle');
 const mobileDrawer = document.getElementById('mobileDrawer');
 const drawerClose  = document.getElementById('drawerClose');
@@ -178,19 +144,12 @@ document.querySelectorAll('.drawer-link').forEach((link) => {
   link.addEventListener('click', () => mobileDrawer.classList.remove('open'));
 });
 
-
-/* ============================================================
-   4. NAVBAR SCROLL SHRINK
-   ============================================================ */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
 
-/* ============================================================
-   5. SCROLL REVEAL ANIMATIONS
-   ============================================================ */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -204,11 +163,6 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) =
 });
 
 
-/* ============================================================
-   6. CARD TILT EFFECT
-   Skill and project cards tilt slightly on mouse move
-   Change the "7" below to increase/decrease tilt amount
-   ============================================================ */
 document.querySelectorAll('.skill-card, .project-card').forEach((card) => {
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
@@ -223,19 +177,6 @@ document.querySelectorAll('.skill-card, .project-card').forEach((card) => {
   });
 });
 
-
-/* ============================================================
-   7. INTERACTIVE TERMINAL
-   ----------------------------------------------------------------
-   HOW TO ADD A NEW COMMAND:
-   Add a new key inside TERMINAL_COMMANDS below.
-   The value is an array of strings — each string = one output line.
-   Use these color tags in your strings:
-     <accent>text</accent>   → purple highlight
-     <success>text</success> → green text
-     <info>text</info>       → blue text
-     <muted>text</muted>     → grey text
-   ============================================================ */
 
 const TERMINAL_COMMANDS = {
 
@@ -334,16 +275,14 @@ const TERMINAL_COMMANDS = {
     'Always Passionate about learning and building cool things!',
   ],
 
-  clear: [], // handled separately below
+  clear: [], 
 };
 
-// ---------- Terminal Engine ----------
 const terminalBody  = document.getElementById('terminalBody');
 const terminalInput = document.getElementById('terminalInput');
 const commandHistory = [];
 let historyIndex = -1;
 
-// Convert color tags → HTML spans
 function parseColors(text) {
   return text
     .replace(/<accent>(.*?)<\/accent>/g,   '<span class="t-highlight">$1</span>')
@@ -352,7 +291,7 @@ function parseColors(text) {
     .replace(/<muted>(.*?)<\/muted>/g,     '<span style="color:var(--muted)">$1</span>');
 }
 
-// Add a line to terminal output
+
 function addLine(html, delay = 0) {
   setTimeout(() => {
     const div = document.createElement('div');
@@ -363,16 +302,14 @@ function addLine(html, delay = 0) {
   }, delay);
 }
 
-// Run a command
 function runCommand(raw) {
   const cmd = raw.trim().toLowerCase();
   if (!cmd) return;
 
-  // Save to history
+  
   commandHistory.unshift(cmd);
   historyIndex = -1;
 
-  // Show what was typed
   addLine(`<span class="t-dollar">$</span> <span class="t-cmd">${raw}</span>`);
 
   if (cmd === 'clear') {
@@ -383,11 +320,11 @@ function runCommand(raw) {
   const output = TERMINAL_COMMANDS[cmd];
 
   if (output === undefined) {
-    // Unknown command
+   
     addLine(`<span class="t-error">Command not found: '${cmd}'</span>`, 80);
     addLine(`<span class="t-muted">Type <span class="t-highlight">'help'</span> for available commands.</span>`, 140);
   } else {
-    // Print each line with a small stagger delay
+   
     output.forEach((line, i) => {
       const html = line === ''
         ? '&nbsp;'
@@ -396,11 +333,9 @@ function runCommand(raw) {
     });
   }
 
-  // Empty line spacer after output
   addLine('&nbsp;', 60 + (output ? output.length * 45 : 0) + 30);
 }
 
-// Handle Enter key
 terminalInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     const val = terminalInput.value;
@@ -408,7 +343,6 @@ terminalInput.addEventListener('keydown', (e) => {
     runCommand(val);
   }
 
-  // Arrow Up — previous command
   if (e.key === 'ArrowUp') {
     if (historyIndex < commandHistory.length - 1) {
       historyIndex++;
@@ -417,7 +351,6 @@ terminalInput.addEventListener('keydown', (e) => {
     e.preventDefault();
   }
 
-  // Arrow Down — next command
   if (e.key === 'ArrowDown') {
     if (historyIndex > 0) {
       historyIndex--;
@@ -430,10 +363,8 @@ terminalInput.addEventListener('keydown', (e) => {
   }
 });
 
-// Click anywhere in terminal body → focus input
 terminalBody.addEventListener('click', () => terminalInput.focus());
 
-// Auto-focus when terminal section scrolls into view
 const terminalSection = document.getElementById('terminal');
 if (terminalSection) {
   const termFocusObserver = new IntersectionObserver((entries) => {
@@ -442,13 +373,6 @@ if (terminalSection) {
   termFocusObserver.observe(terminalSection);
 }
 
-
-/* ============================================================
-   8. CONTACT FORM — FORMSPREE
-   ----------------------------------------------------------------
-   Replace YOUR_FORM_ID in index.html with your Formspree form ID
-   Get a free form at https://formspree.io
-   ============================================================ */
 const contactForm = document.getElementById('contactForm');
 const formStatus  = document.getElementById('form-status');
 const btnText     = document.getElementById('btnText');
