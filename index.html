@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+    PAGE TITLE — change this to your name
+  ============================================================ -->
+  <title>Diviya Dharshini S – Portfolio</title>
+
+  <!-- Google Fonts — Professional fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Animated background canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ============================================================
+    NAVIGATION BAR
+    Add/remove links by editing the <li> items
+  ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-logo">Diviya</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#decoder">Decode Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose">✕</button>
+    <ul>
+      <li><a href="#hero"           class="drawer-link">Home</a></li>
+      <li><a href="#about"          class="drawer-link">About</a></li>
+      <li><a href="#decoder"       class="drawer-link">Decode Me</a></li>
+      <li><a href="#skills"         class="drawer-link">Skills</a></li>
+      <li><a href="#projects"       class="drawer-link">Projects</a></li>
+      <li><a href="#experience"     class="drawer-link">Experience</a></li>
+      <li><a href="#certifications" class="drawer-link">Certifications</a></li>
+      <li><a href="#contact"        class="drawer-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+    HERO SECTION
+    Change: name, tagline, button links
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-badge"><span class="badge-dot"></span> Open to Opportunities</div>
+
+    <h1 class="hero-name">
+      <span class="line1">Diviya Dharshini S</span>
+      <span class="line2">Data &amp; Tech Enthusiast</span>
+    </h1>
+
+    <p class="hero-tagline">
+      Passionate about Data Analytics, Web Development &amp; building cool things.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#decoder" class="btn-outline">Decode Me</a>
+      <a href="#contact"  class="btn-outline">Get in Touch</a>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    ABOUT SECTION
+    Change: paragraph text, stats numbers
+  ============================================================ -->
+  <section id="about">
+    <div class="about-grid container">
+
+      <div class="about-visual reveal-left">
+        <div class="about-orbit"><div class="orbit-dot"></div></div>
+        <div class="about-avatar-ring">
+          <!-- Change this letter to your initial -->
+          <div class="about-avatar-inner">D</div>
+        </div>
+      </div>
+
+      <div class="about-text reveal-right">
+        <p class="section-label">// about me</p>
+        <h2 class="section-title">Building Skills,<br>One Line at a Time</h2>
+        <p>I'm a motivated Information Technology student at Vel Tech High Tech Engineering College (2023–2027), with a CGPA of 8.3/10. I'm passionate about transforming data into insights and building secure, efficient systems.</p>
+        <p>My interests span Data Analytics, and  Web Development. I love working on projects that challenge me to think deeper and code smarter.</p>
+
+        <!-- Change stats numbers as needed -->
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">8.3</span><span class="stat-label">CGPA / 10</span></div>
+          <div class="stat"><span class="stat-num">1+</span><span class="stat-label">Projects</span></div>
+          <div class="stat"><span class="stat-num">1</span><span class="stat-label">Internship</span></div>
+          <div class="stat"><span class="stat-num">2027</span><span class="stat-label">Graduation</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+    INTERACTIVE DECODER SECTION
+    Commands are defined in script.js → DECODER_COMMANDS object
+    To add a new command: add a new key inside DECODER_COMMANDS
+  ============================================================ -->
+  <section id="decoder">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">// interactive</p>
+        <h2 class="section-title">Ask me Anything</h2>
+        <p class="section-sub">Type a phrase below and press Enter. Try <code>root</code> to start.</p>
+      </div>
+
+      <div class="terminal-window reveal">
+        <div class="terminal-topbar">
+          <span class="terminal-title">user@Diviya Dharshini: ~</span>
+        </div>
+
+        <!-- Terminal output area -->
+        <div class="terminal-body" id="terminalBody">
+          <div class="t-line"><span class="t-prompt">&gt;</span> <span class="t-white">Welcome to my Decoder Phase</span></div>
+          <div class="t-line"><span class="t-prompt">&gt;</span> Type <span class="t-highlight">'root'</span> for available phrase</div>
+        </div>
+
+        <!-- Terminal input row -->
+        <div class="terminal-input-row">
+          <span class="t-hashtag">#</span>
+          <input
+            type="text"
+            id="terminalInput"
+            class="terminal-input"
+            placeholder="type a command..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SKILLS SECTION
+    To add a skill card: copy one .skill-card block
+    To add a tag inside a card: copy <span class="tag">...</span>
+  ============================================================ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">// technical skills</p>
+        <h2 class="section-title">What I Work With</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">💻</div>
+          <div class="skill-category">// programming</div>
+          <div class="skill-name">Languages(70%)</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" style="transition-delay:0.1s">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-category">// web</div>
+          <div class="skill-name">Web Technologies(60%)</div>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" style="transition-delay:0.2s">
+          <div class="skill-icon">🛠</div>
+          <div class="skill-category">// tools</div>
+          <div class="skill-name">Tools & Platforms(50%)</div>
+          <div class="skill-tags">
+            <span class="tag">VS Code</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" style="transition-delay:0.3s">
+          <div class="skill-icon">📊</div>
+          <div class="skill-category">// focus area</div>
+          <div class="skill-name">Data & Security</div>
+          <div class="skill-tags">
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">ML Basics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    PROJECTS SECTION
+    To add a project: copy one .project-card block
+    Banner color classes: banner-teal, banner-purple, banner-blue
+  ============================================================ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">// projects</p>
+        <h2 class="section-title">Things I've Built</h2>
+        <p class="section-sub">There are some upcoming projects to showcase.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card reveal">
+          <div class="project-banner banner-teal">
+            <div class="project-glow"></div>
+            <span class="banner-emoji">🧠</span>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Bayesian Optimization</div>
+            <p class="project-desc">
+              Optimized Machine Learning model hyperparameters using Bayesian Optimization
+              techniques to improve model performance and accuracy with fewer evaluations.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">Machine Learning</span>
+              <span class="stack-tag">Optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADD MORE PROJECTS HERE — copy this block:
+        <div class="project-card reveal" style="transition-delay:0.15s">
+          <div class="project-banner banner-purple">
+            <div class="project-glow"></div>
+            <span class="banner-emoji">🌐</span>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Project Name</div>
+            <p class="project-desc">Description of your project.</p>
+            <div class="project-stack">
+              <span class="stack-tag">Tech 1</span>
+              <span class="stack-tag">Tech 2</span>
+            </div>
+          </div>
+        </div>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    EXPERIENCE / TIMELINE SECTION
+    To add more: copy one .timeline-item block
+  ============================================================ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">// experience</p>
+        <h2 class="section-title">Where I've Been</h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-role">Web Development Intern</div>
+            <div class="timeline-company">Inetz Technologies</div>
+            <div class="timeline-date">June 2025</div>
+            <p class="timeline-desc">Gained hands-on experience in front-end web development, building and styling web pages using HTML and CSS. Worked in a professional team environment and delivered assigned modules on schedule.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" style="transition-delay:0.1s">
+          <div class="timeline-dot dot-gold"></div>
+          <div class="timeline-card">
+            <div class="timeline-role">B.Tech – Information Technology</div>
+            <div class="timeline-company">Vel Tech High Tech Engineering College</div>
+            <div class="timeline-date">2023 – 2027</div>
+            <p class="timeline-desc">Currently pursuing my undergraduate degree with a CGPA of 8.3/10. Coursework includes Data Structures, Databases, Networks, Machine Learning, and Web Technologies.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    CERTIFICATIONS SECTION
+    To add a cert: copy one .cert-card block
+  ============================================================ -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">// certifications</p>
+        <h2 class="section-title">Credentials &amp; Learning</h2>
+      </div>
+
+      <div class="certs-grid">
+
+        <div class="cert-card reveal">
+          <div class="cert-icon">🛡</div>
+          <div class="cert-info">
+            <div class="cert-title">Cybersecurity Analyst Virtual Simulation</div>
+            <div class="cert-issuer">Forage</div>
+            <div class="cert-desc">Completed practical cybersecurity analyst tasks including threat detection, incident response, and security reporting in a real-world simulation.</div>
+          </div>
+        </div>
+
+        <!-- ADD MORE CERTS HERE — copy this block:
+        <div class="cert-card reveal" style="transition-delay:0.1s">
+          <div class="cert-icon">📜</div>
+          <div class="cert-info">
+            <div class="cert-title">Certificate Name</div>
+            <div class="cert-issuer">Issuer</div>
+            <div class="cert-desc">What you learned.</div>
+          </div>
+        </div>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    CONTACT SECTION
+    Replace YOUR_FORM_ID with your Formspree ID
+    Get it free at https://formspree.io
+  ============================================================ -->
+  <section id="contact">
+    <div class="container contact-container">
+      <div class="section-header reveal">
+        <p class="section-label">// Ping Me</p>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="contact-sub"> Drop me a message!</p>
+      </div>
+
+      <form id="contactForm" class="contact-form reveal"
+        action="https://formspree.io/f/mlgavopz" method="POST">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">SUBJECT</label>
+          <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">MESSAGE</label>
+          <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">
+          <span id="btnText">Send Message</span>
+          <span id="btnIcon">✦</span>
+        </button>
+        <div id="form-status"></div>
+      </form>
+
+      <div class="social-links reveal">
+        <!-- Change href to your LinkedIn -->
+        <a href="https://www.linkedin.com/in/diviyadharshini7706/" target="_blank" class="social-btn">🔗 LinkedIn</a>
+        <!-- Change href to your email -->
+        <a href="mailto:diviyadharshinisasikumar@gmail.com" class="social-btn">✉ Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER — change name/year -->
+  <footer>
+    <p>Crafted by <span class="footer-name">Diviya Dharshini S  {Still Under Construction}</span> &middot; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
