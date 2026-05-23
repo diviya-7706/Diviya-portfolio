@@ -4,29 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ============================================================
-    PAGE TITLE — change this to your name
-  ============================================================ -->
   <title>Diviya Dharshini S – Portfolio</title>
 
-  <!-- Google Fonts — Professional fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Custom cursor -->
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
-  <!-- Animated background canvas -->
   <canvas id="bg-canvas"></canvas>
 
-  <!-- ============================================================
-    NAVIGATION BAR
-    Add/remove links by editing the <li> items
-  ============================================================ -->
   <nav id="navbar">
     <div class="nav-logo">Diviya</div>
     <ul class="nav-links">
@@ -42,7 +32,6 @@
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
   </nav>
 
-  <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <button class="drawer-close" id="drawerClose">✕</button>
     <ul>
@@ -57,10 +46,6 @@
     </ul>
   </div>
 
-  <!-- ============================================================
-    HERO SECTION
-    Change: name, tagline, button links
-  ============================================================ -->
   <section id="hero">
     <div class="hero-badge"><span class="badge-dot"></span> Open to Opportunities</div>
 
@@ -85,17 +70,13 @@
     </div>
   </section>
 
-  <!-- ============================================================
-    ABOUT SECTION
-    Change: paragraph text, stats numbers
-  ============================================================ -->
   <section id="about">
     <div class="about-grid container">
 
       <div class="about-visual reveal-left">
         <div class="about-orbit"><div class="orbit-dot"></div></div>
         <div class="about-avatar-ring">
-          <!-- Change this letter to your initial -->
+        
           <div class="about-avatar-inner">D</div>
         </div>
       </div>
@@ -106,7 +87,6 @@
         <p>I'm a motivated Information Technology student at Vel Tech High Tech Engineering College (2023–2027), with a CGPA of 8.3/10. I'm passionate about transforming data into insights and building secure, efficient systems.</p>
         <p>My interests span Data Analytics, and  Web Development. I love working on projects that challenge me to think deeper and code smarter.</p>
 
-        <!-- Change stats numbers as needed -->
         <div class="about-stats">
           <div class="stat"><span class="stat-num">8.3</span><span class="stat-label">CGPA / 10</span></div>
           <div class="stat"><span class="stat-num">1+</span><span class="stat-label">Projects</span></div>
@@ -118,11 +98,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-    INTERACTIVE DECODER SECTION
-    Commands are defined in script.js → DECODER_COMMANDS object
-    To add a new command: add a new key inside DECODER_COMMANDS
-  ============================================================ -->
   <section id="decoder">
     <div class="container">
       <div class="section-header reveal">
@@ -136,13 +111,11 @@
           <span class="terminal-title">user@Diviya Dharshini: ~</span>
         </div>
 
-        <!-- Terminal output area -->
         <div class="terminal-body" id="terminalBody">
           <div class="t-line"><span class="t-prompt">&gt;</span> <span class="t-white">Welcome to my Decoder Phase</span></div>
           <div class="t-line"><span class="t-prompt">&gt;</span> Type <span class="t-highlight">'root'</span> for available phrase</div>
         </div>
 
-        <!-- Terminal input row -->
         <div class="terminal-input-row">
           <span class="t-hashtag">#</span>
           <input
@@ -158,11 +131,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-    SKILLS SECTION
-    To add a skill card: copy one .skill-card block
-    To add a tag inside a card: copy <span class="tag">...</span>
-  ============================================================ -->
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
@@ -219,11 +187,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-    PROJECTS SECTION
-    To add a project: copy one .project-card block
-    Banner color classes: banner-teal, banner-purple, banner-blue
-  ============================================================ -->
   <section id="projects">
     <div class="container">
       <div class="section-header reveal">
@@ -234,7 +197,6 @@
 
       <div class="projects-grid">
 
-        <!-- PROJECT 1 -->
         <div class="project-card reveal">
           <div class="project-banner banner-teal">
             <div class="project-glow"></div>
@@ -254,31 +216,10 @@
           </div>
         </div>
 
-        <!-- ADD MORE PROJECTS HERE — copy this block:
-        <div class="project-card reveal" style="transition-delay:0.15s">
-          <div class="project-banner banner-purple">
-            <div class="project-glow"></div>
-            <span class="banner-emoji">🌐</span>
-          </div>
-          <div class="project-body">
-            <div class="project-title">Project Name</div>
-            <p class="project-desc">Description of your project.</p>
-            <div class="project-stack">
-              <span class="stack-tag">Tech 1</span>
-              <span class="stack-tag">Tech 2</span>
-            </div>
-          </div>
-        </div>
-        -->
-
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-    EXPERIENCE / TIMELINE SECTION
-    To add more: copy one .timeline-item block
-  ============================================================ -->
   <section id="experience">
     <div class="container">
       <div class="section-header reveal">
@@ -312,10 +253,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-    CERTIFICATIONS SECTION
-    To add a cert: copy one .cert-card block
-  ============================================================ -->
   <section id="certifications">
     <div class="container">
       <div class="section-header reveal">
@@ -334,26 +271,11 @@
           </div>
         </div>
 
-        <!-- ADD MORE CERTS HERE — copy this block:
-        <div class="cert-card reveal" style="transition-delay:0.1s">
-          <div class="cert-icon">📜</div>
-          <div class="cert-info">
-            <div class="cert-title">Certificate Name</div>
-            <div class="cert-issuer">Issuer</div>
-            <div class="cert-desc">What you learned.</div>
-          </div>
-        </div>
-        -->
 
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-    CONTACT SECTION
-    Replace YOUR_FORM_ID with your Formspree ID
-    Get it free at https://formspree.io
-  ============================================================ -->
   <section id="contact">
     <div class="container contact-container">
       <div class="section-header reveal">
@@ -394,15 +316,12 @@
       </form>
 
       <div class="social-links reveal">
-        <!-- Change href to your LinkedIn -->
         <a href="https://www.linkedin.com/in/diviyadharshini7706/" target="_blank" class="social-btn">🔗 LinkedIn</a>
-        <!-- Change href to your email -->
         <a href="mailto:diviyadharshinisasikumar@gmail.com" class="social-btn">✉ Email</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER — change name/year -->
   <footer>
     <p>Crafted by <span class="footer-name">Diviya Dharshini S  {Still Under Construction}</span> &middot; 2026</p>
   </footer>
