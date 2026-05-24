@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Diviya Dharshini S – Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+ <section id="decoder">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">// interactive</p>
+        <h2 class="section-title">Ask me Anything</h2>
+        <p class="section-sub">Type a phrase below and press Enter. Try <code>root</code> to start.</p>
+      </div>
+
+      <div class="terminal-window reveal">
+        <div class="terminal-topbar">
+          <span class="terminal-title">user@Diviya Dharshini: ~</span>
+        </div>
+
+        <div class="terminal-body" id="terminalBody">
+          <div class="t-line"><span class="t-prompt">&gt;</span> <span class="t-white">Welcome to my Decoder Phase</span></div>
+          <div class="t-line"><span class="t-prompt">&gt;</span> Type <span class="t-highlight">'root'</span> for available phrase</div>
+        </div>
+
+        <div class="terminal-input-row">
+          <span class="t-hashtag">#</span>
+          <input
+            type="text"
+            id="terminalInput"
+            class="terminal-input"
+            placeholder="type a command..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
